@@ -1,0 +1,62 @@
+{template header_admin}
+<div class="console-title">
+	<a href="/?m=$G[m]&c=$G[c]&a=publish" class="submit f-right">添加页面</a>
+    <h2>页面分类</h2>
+</div>
+<div class="table-wrap">
+<form method="post" action="">
+    <input type="hidden" name="formsubmit" value="yes" />
+    <input type="hidden" name="formhash" value="{FORMHASH}">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="listtable">
+    <thead>
+    <tr>
+      <th width="30" class="center">删?</th>
+      <th width="80">显示顺序</th>
+      <th width="300">标题</th>
+      <th></th>
+    </tr>
+    </thead>
+    <tbody id="newPage">
+    {loop $categorylist $clist}
+    {eval $pageid=$clist[pageid]}
+    <tr>
+      <td><input type="checkbox" class="checkbox checkmark" name="delete[]" value="$pageid" /></td>
+      <td><input type="text" class="text w60" name="categorylist[$pageid][displayorder]" value="$clist[displayorder]" maxlength="4"></td>
+      <td colspan="3">
+        <input type="text" class="text w200" name="categorylist[$pageid][title]" value="$clist[title]" maxlength="10"> 
+      </td>
+    </tr>
+    {/loop}
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="5">
+        <label><input type="checkbox" class="checkbox checkall" name="delete[]" value="0" /> 全选</label>
+        <a href="javascript:;" onclick="addClass()"><i class="icon">&#xf0154;</i>添加分类</a></td>
+    </tr>
+    <tr>
+        <td colspan="5">
+            <input type="submit" class="submit" value="提交" />
+            <input type="button" class="button" value="刷新" onclick="window.location.reload()" />
+        </td>
+    </tr>
+    </tfoot>
+  </table>
+</form>
+</div>
+<script type="text/template" id="tplClass">
+<tr class="white">
+  <td></td>
+  <td><input type="text" class="text w60" name="categorylist[#k#][displayorder]" value="0" maxlength="4"></td>
+  <td colspan="3"><input type="text" class="text w200" name="categorylist[#k#][title]" value="" maxlength="10"></td>
+</tr>
+</script>
+<script type="text/javascript">
+var k = 0;
+function addClass(){
+	k--;
+	var html = $("#tplClass").html().replace(/#k#/g, k);
+	$("#newPage").append(html);
+}
+</script>
+{template footer_admin}

@@ -1,0 +1,39 @@
+<script type="text/javascript">
+$("img[rel=setimage]").setImage(function(o,data){
+	var d = eval('('+$(o).attr("data")+')');
+	if(typeof d != 'object') d = {};
+	d.image = data.image;
+	$.ajax({
+		url:'/?m=$G[m]&c=$G[c]&a=setimage',
+		data:d,
+		dataType:"json",
+		success: function(json){
+		}
+	});
+});
+$("img[rel=pickimage]").pickImage({multi:false,
+	onPicked:function(o,data){
+		var d = eval('('+$(o).attr("action-data")+')');
+		if(typeof d != 'object') d = {};
+		d.image = data.image;
+		$.ajax({
+			url:'/?m=$G[m]&c=$G[c]&a=setimage',
+			data:d,
+			dataType:"json",
+			success: function(json){
+				o.src = data.imageurl;
+			}
+		});
+	}
+});
+$(".checkall").click(function(e) {
+    DSXUtil.checkAll(this,'input.checkmark');
+});
+</script>
+<div id="footer">
+  <p></p>
+  <p>©2015-{echo date('Y',time());} <a href="http://www.songdewei.com" target="_blank">贵州大师兄信息技术有限公司</a> 版权所有，并保留所有权利。</p>
+</div>
+<div class="blank"></div>
+</body>
+</html>

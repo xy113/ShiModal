@@ -1,0 +1,79 @@
+{template header_admin}
+<div class="console-title">
+	<div class="f-right">
+    	<a href="/?m=$G[m]&c=postcat" class="submit">分类管理</a>
+        <a href="/?m=$G[m]&c=$G[c]&a=publish" class="submit">发布文章</a>
+    </div>
+    <h2>文章列表</h2>
+</div>
+<div class="toolbar">
+	<div class="f-right"><span class="pages">$pages</span></div>
+  <form name="search" action="/?">
+      <input type="hidden" name="m" value="$G[m]">
+      <input type="hidden" name="c" value="$G[c]">
+      <input type="hidden" name="a" value="$G[a]">
+      <input type="hidden" name="status" value="$status">
+      <span>选择查询条件：</span>
+      <select name="catid" id="catid">
+          <option value="0">所有栏目</option>
+          {$categoryoptions}
+      </select>
+      <input type="text" class="input-text" name="keyword" value="$keyword">
+      <input type="submit" class="submit" value="$lang[search]">
+  </form>
+</div>
+<div class="table-wrap">
+    <form method="post">
+    <input type="hidden" name="formsubmit" value="yes" />
+    <input type="hidden" name="formhash" value="{FORMHASH}">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="listtable">
+    <thead>
+      <tr>
+        <th width="20" class="center">选?</th>
+        <th width="50">图片</th>
+        <th>标题</th>
+        <th width="40">形式</th>
+        <th width="80">分类</th>
+        <th width="60">点击</th>
+        <th width="140">时间</th>
+        <th width="60">状态</th>
+        <th width="40">编辑</th>
+      </tr>
+     </thead>
+     <tbody>
+      {loop $postlist $id $item}
+      <tr>
+        <td class="center"><input type="checkbox" class="checkbox checkall" name="id[]" value="$id"></td>
+        <td><img src="{echo image($item[image])}" width="50" height="50" rel="pickimage" action-data="{id:$id}"></td>
+        <th><a href="/?m=post&c=detail&id=$id" target="_blank">$item[title]</a></th>
+        <td>{$item[type_name]}</td>
+        <td>{$item[cat_name]}</td>
+        <td>{$item[viewnum]}</td>
+        <td>{$item[pubtime]}</td>
+        <td>{$item[status_name]}</td>
+        <td><a href="/?m=$G[m]&c=$G[c]&a=edit&id=$id">编辑</a></td>
+      </tr>
+      {/loop}
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="10">
+            <label><input type="checkbox" class="checkbox" onclick="DSXUtil.checkAll(this,'.checkall')"> $lang[selectall]</label>
+            <label><input type="radio" class="radio" name="option" value="delete" checked> 删除</label>
+            <label><input type="radio" class="radio" name="option" value="move"> 移动</label>
+            <label><input type="radio" class="radio" name="option" value="audit"> 通过审核</label>
+            <label><input type="radio" class="radio" name="option" value="unaudit"> 审核未通过</label>
+        </td>
+      </tr>
+      <tr>
+          <td colspan="10">
+              <span class="pages">$pages</span>
+              <input type="submit" class="button" value="$lang[submit]">
+              <input type="button" class="button cancel" value="$lang[refresh]" onclick="window.location.reload()">
+          </td>
+      </tr>
+     </tfoot>
+    </table>
+    </form>
+</div>
+{template footer_admin}

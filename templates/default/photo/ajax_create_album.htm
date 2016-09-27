@@ -1,0 +1,35 @@
+<form method="post" id="J-create-album-form" method="post" action="/?m=photo&c=album&a=create">
+<input type="hidden" name="formsubmit" value="yes">
+<input type="hidden" name="formhash" value="{FORMHASH}">
+<table width="100%" border="0" cellspacing="0" cellpadding="0" class="ui-table">
+	<tbody>
+      <tr>
+        <td>相册名称:</td>
+        <td><input type="text" class="ui-textfield" name="title"></td>
+        <td>1-20个汉字、英文字母、数字或下划线</td>
+      </tr>
+      <tr>
+        <td>是否公开:</td>
+        <td>
+            <label><input type="radio" class="ui-radio" value="1" name="isopen" checked onclick="$('#tbody-password').hide()"> 是 </label>&nbsp;&nbsp;
+            <label><input type="radio" class="ui-radio" value="0" name="isopen" onclick="$('#tbody-password').show()"> 否</label>
+        </td>
+        <td>&nbsp;</td>
+      </tr>
+  </tbody>
+  <tbody id="tbody-password" style="display:none;">
+      <tr>
+        <td>查看密码:</td>
+        <td><input type="password" class="ui-textfield" name="password"></td>
+        <td>6-20个英文字母、数字或符合组合</td>
+      </tr>
+  </tbody>
+  <tbody>
+      <tr>
+        <td>&nbsp;</td>
+        <td><input type="button" class="ui-button" id="J-create-album-button" value="创建相册"></td>
+        <td>&nbsp;</td>
+      </tr>
+  </tbody>
+</table>
+</form>

@@ -1,0 +1,46 @@
+/* CSS Document */
+.account-main-body{position:relative; border:1px #CCC solid; box-sizing:border-box; margin-top:10px;}
+.sidebar{width:160px; background:#f2f2f2; border-right:1px #CCC solid; position:absolute; left:0; top:0; bottom:0; height:100%;}
+.sidebar .sidebar-content{display:block; padding:10px 0;}
+.sidebar dl{display:block;}
+.sidebar dl dd{font-size:12px; font-weight:500;}
+.sidebar dl dd a{display:block; padding:8px 20px;}
+.sidebar dl dd a:hover{color:#000;}
+.sidebar dl dd .icon{margin:0; display:inline-block; margin:0 6px 0 0; font-size:14px; width:auto; height:auto;}
+.sidebar dl dt{}
+.sidebar dl ul{}
+.sidebar dl li{display:block;}
+.sidebar dl li a{display:block; padding:7px 20px 7px 38px; font-size:12px;}
+.sidebar dl li a:hover{background:#e2e2e2; color:#000;}
+.mainframe{margin-left:160px; min-height:600px;}
+.mainframe .main-content{display:block; padding:20px;}
+
+.content-div{display:block; margin:10px 0;}
+.formtable{}
+.formtable td,.formtable th{padding:10px 0; font-size:12px; text-align:left;}
+.formtable .cell-name{text-align:right; padding-right:10px;}
+
+.button{height:33px; line-height:33px; box-sizing:border-box; padding:0 20px; display:inline-block; font-size:12px; border-radius:1px; cursor:pointer; vertical-align:middle;}
+.button,a.button{background-color:#00BAAA; color:#fff; border:0;}
+.button:hover{background-color:#00C4B0; color:#fff;}
+.input-text:hover,textarea:hover,select:hover{border-color:#00BAAA;}
+
+.toolbar{display:block; padding:15px 0; border-bottom:1px #CCC solid; margin-bottom:20px;}
+.toolbar .tab{display:inline-block;}
+.toolbar .tab li{float:left; margin-right:10px; font-size:12px; border-radius:5px;}
+.toolbar .tab li a{display:block; padding:3px 10px;}
+.toolbar .tab li.on{background:#00BAAA; color:#fff;}
+.toolbar .tab li.on a,.toolbar .tab li.on a:hover{color:#fff;}
+
+.formtable{table-layout:auto;}
+.formtable th, td{padding:8px 0; text-align:left; font-size:12px;}
+.formtable .a-bind-link{color:#00BAAA;}
+.formtable .a-bind-link:hover{text-decoration:underline;}
+
+.avatar-div{width:300px; float:left; margin-right:50px;}
+.avatar-div .avatar{width:240px; height:240px; margin:0 auto; display:block;}
+.avatar-div .avatar img{width:100%; height:100%; display:block;}
+.avatar-div .avatar-content{margin-top:20px; display:block; text-align:center; color:#00BAAA; font-size:14px; position:relative;}
+.avatar-div .upload-button{position:relative;}
+.avatar-div #J-file{position:absolute; left:0; top:0; opacity:0; z-index:10; width:100%; height:100%; display:block; cursor:pointer;}
+.userinfo-div{overflow:hidden;}

@@ -1,0 +1,58 @@
+{if !$G[inajax]}<div class="ui-image-pickview">
+    <div class="pickview-tabs">
+        <a class="cur">选择图片</a>
+        <a>上传图片</a>
+    </div>
+    <div class="pickview-content">
+    	<div class="pickview-albums">
+            <span>选择相册:</span>
+            <span>
+                <select name="albumid" class="select pickview-select-album">
+                	<option value="0">所有照片</option>
+                    {loop $albumlist $album}
+                    <option value="$album[albumid]"{if $albumid==$album[albumid]} selected="selected"{/if}>$album[title]</option>
+                    {/loop}
+                </select>
+            </span>
+            <a class="pickview-button">确认选择</a>
+    	</div>
+        <div class="pickview-div">
+        	{/if}
+            <ul class="pickview-item-list">
+                {loop $photolist $item}
+                <li class="pickitem" data-id="$item[photoid]" data-image="$item[image]" data-thumb="$item[thumb]" data-imageurl="$item[imageurl]" data-thumburl="$item[thumburl]">
+                    <div class="box"><img src="{echo image($item[thumb])}"><i class="icon">&#xf00b2;</i></div>
+                </li>
+                {/loop}
+            </ul>
+            <div class="pickview-pages">$pages</div>
+            {if !$G[inajax]}
+        </div>
+    </div>
+    <div class="pickview-content" style="display:none;">
+    	<form method="post" id="pickview-upload-form" enctype="multipart/form-data" action="/?m=photo&c=jsapi&a=uploadimage">
+    	<div class="pickview-albums">
+        <span>选择相册:</span>
+        <span>
+            <select name="albumid" class="select pickview-choose-album">
+                {loop $albumlist $album}
+                <option value="$album[albumid]">$album[title]</option>
+                {/loop}
+            </select>
+            <a class="pickview-create-album" style="margin-left:5px;">新建相册</a>
+        </span>
+    	</div>
+        <div class="pickview-upload">
+            <div class="label"><i class="icon">&#xf0175;</i>添加图片</div>
+            <input type="file" class="pickview-input-file" name="filedata">
+        </div>
+        </form>
+    </div>
+</div>
+<script type="text/javascript">
+$(".pickview-tabs a").click(function(e) {
+	$(this).addClass('cur').siblings().removeClass('cur');
+	$(".pickview-content").eq($(this).index()).show().siblings('.pickview-content').hide();
+});
+</script>
+{/if}
