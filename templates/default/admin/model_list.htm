@@ -1,0 +1,76 @@
+{template header_admin}
+<div class="console-title">
+	<a href="/?m=$G[m]&c=$G[c]&a=add" class="submit f-right">添加模特</a>
+	<h2>模特列表</h2>
+</div>
+<div class="toolbar">
+  <form method="get" name="search" action="/">
+  <input type="hidden" name="m" value="$G[m]" />
+  <input type="hidden" name="c" value="$G[c]" />
+  <input type="hidden" name="a" value="$G[a]" />
+  <span>输入关键字：</span>
+  <input type="text" class="input-text w200" name="keyword" value="$keyword" />
+  <input type="submit" class="submit" value="搜索" />
+  </form>
+</div>
+<div class="table-wrap">
+<form method="post" action="">
+    <input type="hidden" name="formsubmit" value="yes">
+    <input type="hidden" name="formhash" value="{FORMHASH}" />
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" class="listtable">
+    <thead>
+    <tr>
+      <th width="20">选</th>
+      <th width="30">头像</th>
+      <th>昵称</th>
+      <th>姓名</th>
+      <th>身高</th>
+      <th>体重</th>
+      <th>胸围</th>
+      <th>腰围</th>
+      <th>臀围</th>
+      <th>鞋码</th>
+      <th>发色</th>
+      <th>眼色</th>
+      <th width="40">编辑</th>
+    </tr>
+    </thead>
+    <tbody id="members">
+    {loop $itemlist $item}
+    {eval $id=$item[id]}
+    <tr>
+      <td><input type="checkbox" class="checkbox checkmark" name="id[]" value="{$id}" /></td>
+      <td><img src="{echo image($item[avatar])}" width="30" height="30" style="border-radius:100%;"></td>
+      <th><a href="/?m=model&id=$id" target="_blank">$item[nickname]</a></th>
+      <td>{$item[fullname]}</td>
+      <td>{$item[height]}CM</td>
+      <td>{$item[weight]}KG</td>
+      <td>{$item[bust]}CM</td>
+      <td>{$item[waist]}CM</td>
+      <td>{$item[hips]}CM</td>
+      <td>{$item[shoe]}</td>
+      <td>{$item[hair]}</td>
+      <td>{$item[eyes]}</td>
+      <td><a href="/?m=$G[m]&c=$G[c]&a=edit&id=$id">编辑</a></td>
+    </tr>
+    {/loop}
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="15">
+            <label><input type="checkbox" class="checkbox checkall" /> 全选</label>
+            <label><input type="radio" name="option" value="delete" checked> 删除</label>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="15">
+            <span class="pages">{$pages}</span>
+            <input type="submit" class="button" value="提交" />
+            <input type="button" class="button cancel" value="刷新" onclick="window.location.reload()" />
+        </td>
+    </tr>
+    </tfoot>
+  </table>
+ </form>
+</div>
+{template footer_admin}

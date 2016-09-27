@@ -13,7 +13,8 @@
 <script src="/static/js/jquery.form.js" type="text/javascript"></script>
 <script src="/static/js/jquery.dsxui.js" type="text/javascript"></script>
 </head>
-<body style="background:url(http://service.dsxcms.com/background.php?{TIMESTAMP});">
+{eval $bg=C('STATICURL').'images/bg/'.rand(1,5).'.jpg?'.time()}
+<body style="background-image:url($bg); background-size:100% 100%;">
 <div class="topbar">
 	<div class="area">
     	<div class="menu f-right">

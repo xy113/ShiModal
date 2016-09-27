@@ -85,4 +85,14 @@ return array(
 				'system'=>'管理组',
 				'member'=>'用户组'
 		),
+		'eyes_colors'=>array(
+				'Black'=>'黑色',
+				'Blue'=>'蓝色',
+				'Green'=>'绿色',
+				'Brown'=>'棕色',
+				'Hazel'=>'褐色',
+				'Amber'=>'琥珀黄',
+				'Gray'=>'灰色',
+				'Violet'=>'浅紫色'
+		)
 );
