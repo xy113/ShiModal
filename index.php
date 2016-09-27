@@ -4,7 +4,7 @@ error_reporting(E_ALL & ~E_NOTICE);
 define('DEBUG', true);
 define('IN_DSXCMS', true);
 define('ROOT_PATH',dirname(__FILE__).'/');
-//define('THEME', 'bade');
+define('THEME', 'shimodel');
 require ROOT_PATH.'Library/class.Application.php';
 $application = new Application();
 $application->start();

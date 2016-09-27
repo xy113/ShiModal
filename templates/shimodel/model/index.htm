@@ -1,0 +1,57 @@
+{template s_header}
+<div class="area shimodel-page">
+	
+	<div class="shimodel-left">
+    	<div class="logo"><img src="/static/images/common/logo.png"></div>
+        {eval $modellist=model_get_item_list(0,0)}
+        <ul class="model-name-list">
+        	{loop $modellist $md}
+            <li><a href="/?m=$G[m]&c=profile&id=$md[id]">$md[nickname]</a></li>
+            {/loop}
+        </ul>
+    </div>
+    
+    <div class="shimodel-main">
+    	<ul class="shimodel-nav">
+        	<li><a href="/">Home</a></li>
+            <li><a href="/?m=page&c=detail&pageid=34">About us</a></li>
+            <li><a href="/?m=model&sex=female">Female</a></li>
+            <li><a href="/?m=model&sex=male">Male</a></li>
+            <li><a href="/?m=post">News</a></li>
+            <li><a href="/?m=page&c=detail&pageid=35">Contact</a></li>
+            <li><a href="/?m=page&c=detail&pageid=36">Join us</a></li>
+        </ul>
+        
+        <div>
+        	<ul class="model-item-list">
+            	{loop $modellist $item}
+            	<li>
+                	<a href="/?m=model&c=profile&id=$item[id]">
+                	<div class="pic">
+                    	<img src="{echo image($item[avatar])}">
+                        <div class="profile">
+                        	<div class="i">Height: $item[height]CM</div>
+                            <div class="i">Bust: $item[bust]CM</div>
+                            <div class="i">Waist: $item[waist]CM</div>
+                            <div class="i">Hips: $item[hips]CM</div>
+                            <div class="i">Shoes: $item[shoe]</div>
+                            <div class="i">Eyes: $item[eyes]</div>
+                            <div class="i">Hair: $item[hair]</div>
+                        </div>
+                    </div>
+                    <div class="nickname">$item[nickname]</div>
+                    </a>
+                </li>
+                {/loop}
+            </ul>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+$(".model-item-list .pic").hover(function(e){
+	$(this).find(".profile").slideDown('fast');
+},function(e){
+	$(this).find(".profile").slideUp('fast');
+});
+</script>
+{template s_footer}

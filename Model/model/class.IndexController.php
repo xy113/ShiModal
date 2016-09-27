@@ -1,7 +1,9 @@
 <?php
-namespace Page;
+namespace Model;
 class IndexController extends BaseController{
 	public function index(){
+		global $G,$lang;
 		
+		include template('index');
 	}
 }

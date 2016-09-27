@@ -11,9 +11,9 @@
     <input type="hidden" name="formhash" value="{FORMHASH}">
     <table width="100%" border="0" cellspacing="0" cellpadding="0" class="formtable">
     <tr>
-      <td width="40">昵称</td>
+      <td width="60">昵称</td>
       <td><input type="text" class="input-text" name="model[nickname]" value="$model[nickname]" id="nickname"></td>
-      <td width="60">姓名</td>
+      <td width="40">姓名</td>
       <td><input type="text" class="input-text" name="model[fullname]" value="$model[fullname]"></td>
       <td rowspan="4" width="160">
         <input type="hidden" id="avatar" name="model[avatar]" value="$model[avatar]">
@@ -40,8 +40,6 @@
       <td><input type="text" class="input-text" name="model[shoe]" value="$model[shoe]"></td>
     </tr>
     <tr>
-      <td>发色</td>
-      <td><input type="text" class="input-text" name="model[hair]" value="$model[hair]"></td>
       <td>眼睛颜色</td>
       <td>
            <select class="w200" name="model[eyes]">
@@ -50,6 +48,8 @@
            {/loop}
            </select>
       </td>
+      <td>发色</td>
+      <td><input type="text" class="input-text" name="model[hair]" value="$model[hair]"></td>
       <td><input type="submit" class="button" value="{if $G[a]=='edit'}更新{else}保存{/if}" id="publishButton"></td>
     </tr>
   </table>
@@ -114,6 +114,8 @@ function getTemplate(){
 }
 var swfu = new DSXUpload({
 	multi:true,
+	file_upload_limit : 100,
+	file_queue_limit : 100,
 	post_params:{uid:'$G[uid]',username:'$G[username]',token:'$token'},
 	button_id:'swfuploadButton',
 	button_text:'',

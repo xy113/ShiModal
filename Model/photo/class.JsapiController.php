@@ -46,7 +46,7 @@ class JsapiController extends BaseController{
 		$pagesize  = 20;
 		$totalnum  = photo_get_num($condition);
 		$pagecount = $totalnum < $pagesize ? 1 : ceil($totalnum/$pagesize);
-		$photolist = photo_get_page($condition, $G['page'], $pagesize);
+		$photolist = photo_get_page($condition, $G['page'], $pagesize, 'photoid DESC');
 		$pages = $this->showPages($G['page'], $pagecount, $totalnum, "albumid=$albumid&inajax=1");
 
 		$albumlist = album_get_list(array('uid'=>$this->uid));

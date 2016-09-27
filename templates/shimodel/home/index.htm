@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>{$G[title]}</title>
+<meta name="keywords" content="{$G[keywords]}">
+<meta name="description" content="{$G[description]}">
+<link rel="icon" href="/static/images/common/favicon.ico">
+<link rel="stylesheet" type="text/css" href="/static/css/common.css">
+<link rel="stylesheet" type="text/css" href="/static/css/shimodel.css">
+<script src="/static/js/jquery.js" type="text/javascript"></script>
+<script src="/static/js/common.js" type="text/javascript"></script>
+<script src="/static/js/jquery.dsxui.js" type="text/javascript"></script>
+</head>
+
+{eval $bg=C('STATICURL').'images/bg/'.rand(1,5).'.jpg'}
+<body style="background-image:url($bg); background-size:100% 100%;">
+<div class="home-link-box">
+	<div class="logo"><img src="/static/images/common/logo.png"></div>
+	<h3 class="setlang" lang="chinese">中　文</h3>
+    <p class="setlang" lang="english">English</p>
+</div>
+<script type="text/javascript">
+$(".home-link-box").center();
+$(".setlang").click(function(e) {
+    window.location.href = '/?m=model';
+});
+</script>
+</body>
+</html>

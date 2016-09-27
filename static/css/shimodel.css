@@ -1,0 +1,37 @@
+/* CSS Document */
+html,body,*{font-family:"Open sans",sans-serif; font-weight:300; color:#999;}
+.home-link-box{display:block; width:200px; text-shadow:0 3px 5px #000; cursor:pointer;}
+.home-link-box .logo{display:block; text-align:center;}
+.home-link-box .logo img{width:120px;}
+.home-link-box h3{font-size:16px; text-align:center; padding:10px 0; color:#fff;}
+.home-link-box p{font-size:16px; text-align:center; display:block; color:#fff;}
+
+.shimodel-page{margin:20px auto;}
+.shimodel-left{width:200px; float:left; margin-right:40px;}
+.shimodel-left .logo{display:block; margin-bottom:40px;}
+.shimodel-left .model-name-list{display:block; font-size:16px;}
+.shimodel-left .model-name-list li{display:block; line-height:1.1; text-align:left;}
+.shimodel-left .model-name-list li a{color:#999; text-decoration:none; display:block; padding:8px 0;}
+.shimodel-left .model-name-list li a:hover{color:#000;}
+.shimodel-main{overflow:hidden;}
+.shimodel-nav{display:block; margin:20px 0 40px;}
+.shimodel-nav li{float:left; margin-right:20px; font-size:19px;}
+.shimodel-nav li a{display:block; color:#999;}
+.shimodel-nav li a:hover{color:#000;}
+
+.shimodel-main .model-item-list{display:block;}
+.shimodel-main .model-item-list li{width:160px; float:left; margin:0 10px 10px 0;}
+.shimodel-main .model-item-list li .pic{height:240px; display:block; position:relative;}
+.shimodel-main .model-item-list li .pic img{width:100%; height:100%; display:block;}
+.shimodel-main .model-item-list li .profile{position:absolute; width:100%; height:100%; bottom:0; background:#000; display:none; color:#fff; box-sizing:border-box; padding-top:10px;}
+.shimodel-main .model-item-list li .profile .i{font-size:16px; height:31px; line-height:31px; padding:0 10px 0 20px; color:#DDD !important; color:#DDD;}
+.shimodel-main .model-item-list li .nickname{text-align:center; font-size:16px; color:#999; padding:8px 0; line-height:1;}
+.shimodel-main .page-div{display:block;}
+.shimodel-main .page-div h1.page-title{font-size:18px; text-align:center; padding:10px;}
+.shimodel-main .page-div div.page-content{padding:10px 0; text-align:justify; font-size:16px; color:#999; line-height:1.5;}
+.shimodel-main .page-div div.page-content p{text-indent:2em; padding:5px 0;}
+.shimodel-main .page-div div.page-content br{clear:both; height:10px; text-indent:2em; margin-top:10px;}
+.shimodel-main .page-div div.page-content br:after{text-indent:2em;}
+
+
+.footer{display:block; text-align:center; font-size:14px; margin-top:10px; padding:10px 0;}

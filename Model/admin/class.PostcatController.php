@@ -88,15 +88,17 @@ class PostcatController extends BaseController{
 			$target = intval($_GET['target']);
 			if ($source && is_array($source)){
 				foreach ($source as $k=>$v){
-					if ($k == $target){
+					if ($v == $target){
 						unset($source[$k]);
 					}
 				}
 			}
 			$source = $source ? implodeids($source) : 0;
-			post_update_item(array('catid'=>array('IN', $source)), array('catid'=>$target));
-			post_delete_category(array('catid'=>array('IN', $source)));
-			post_update_category_cache();
+			if ($source){
+				post_update_item(array('catid'=>array('IN', $source)), array('catid'=>$target));
+				post_delete_category(array('catid'=>array('IN', $source)));
+				post_update_category_cache();
+			}
 			$this->showSuccess('update_succeed');
 
 		}else {
